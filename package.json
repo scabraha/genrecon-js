@@ -21,10 +21,18 @@
     "url": "https://github.com/scabraha/genrecon-js/issues"
   },
   "homepage": "https://github.com/scabraha/genrecon-js#readme",
-  "bin" : {
+  "bin": {
     "genrecon": "src/index.js"
   },
   "scripts": {
     "test": "test"
+  },
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0"
   }
 }
