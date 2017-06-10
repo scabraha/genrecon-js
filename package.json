@@ -1,0 +1,30 @@
+{
+  "name": "genrecon-js",
+  "version": "0.0.1",
+  "description": "Redux Container test generator",
+  "author": "Scott Abraham",
+  "license": "MIT",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scabraha/genrecon-js.git"
+  },
+  "keywords": [
+    "redux",
+    "container",
+    "test",
+    "generator",
+    "javascript",
+    "jest"
+  ],
+  "bugs": {
+    "url": "https://github.com/scabraha/genrecon-js/issues"
+  },
+  "homepage": "https://github.com/scabraha/genrecon-js#readme",
+  "bin" : {
+    "genrecon": "src/index.js"
+  },
+  "scripts": {
+    "test": "test"
+  }
+}
