@@ -29,7 +29,8 @@
     "test": "test"
   },
   "dependencies": {
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "esprima": "^4.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
