@@ -4,7 +4,7 @@
   "description": "Redux Container test generator",
   "author": "Scott Abraham",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "./target/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/scabraha/genrecon-js.git"
@@ -22,15 +22,18 @@
   },
   "homepage": "https://github.com/scabraha/genrecon-js#readme",
   "bin": {
-    "genrecon": "src/index.js"
+    "genrecon": "target/index.js"
   },
   "scripts": {
+    "build": "babel src --presets babel-preset-es2015 --out-dir target",
     "test": "test"
   },
   "dependencies": {
     "commander": "^2.9.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0"
