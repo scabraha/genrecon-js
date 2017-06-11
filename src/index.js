@@ -11,13 +11,13 @@ program.usage('<command> [options] <file> [otherFiles...]');
 program
   .command('gen <file> [otherFiles...]')
   .description('Generate unit tests for the supplied files')
-  .action((file, otherFiles) => {
+  .action((primaryFileName, otherFileNames) => {
     try {
-      const files = [file];
-      if (otherFiles) {
-        otherFiles.forEach(f => files.push(f));
+      const fileNames = new Set([primaryFileName]);
+      if (otherFileNames) {
+        otherFileNames.forEach(fileName => files.add(fileName));
       }
-      const parsedFiles = parseFiles(files);
+      const parsedFiles = parseFiles(fileNames);
       generate(parsedFiles);
       process.exit(0);
     } catch (e) {
