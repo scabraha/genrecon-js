@@ -60,3 +60,4 @@ typings/
 *.swp
 */*.swp
 target
+coverage
