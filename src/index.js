@@ -17,7 +17,7 @@ program
       if (otherFileNames) {
         otherFileNames.forEach(fileName => fileNames.add(fileName));
       }
-      const parsedFiles = parseFiles(fileNames);
+      const parsedFiles = parseFiles([...fileNames]);
       generate(parsedFiles);
       process.exit(0);
     } catch (e) {

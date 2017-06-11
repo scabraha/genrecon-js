@@ -1,7 +1,16 @@
+import getMappingFunctions from '../extractors/MappingFunctionExtractors';
+import getStateTree from '../extractors/StateTreeExtractor';
+
 const ProgressBar = require('progress');
 
-function generateTestForFile(file) {
+// Dammit what about derivation functions? ZOMG
+function generateTestForSource(source) {
+  const mappingFunctions = getMappingFunctions(source);
+  const stateTree = getStateTree(mappingFunctions);
+  console.dir(mappingFunctions);
+
   // Generate Tests here
+  // create generator folder to do this ungodly task, prease?
 }
 
 
@@ -15,7 +24,7 @@ export default function (files = []) {
 
   files.forEach((file) => {
     // Extract shit using source.body. IDGAF about the type or sourceType
-    generateTestForFile(file.body);
+    generateTestForSource(file.parsedFile.body);
     // Write file here
     progressBar.tick(1);
   });

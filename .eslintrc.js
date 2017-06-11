@@ -8,6 +8,7 @@ module.exports = {
     "import"
   ],
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "comma-dangle": ["error", "never"]
   }
 };
