@@ -15,7 +15,7 @@ program
     try {
       const fileNames = new Set([primaryFileName]);
       if (otherFileNames) {
-        otherFileNames.forEach(fileName => files.add(fileName));
+        otherFileNames.forEach(fileName => fileNames.add(fileName));
       }
       const parsedFiles = parseFiles(fileNames);
       generate(parsedFiles);
