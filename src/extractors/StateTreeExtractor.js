@@ -1,3 +1,3 @@
-export default function(mapStateFunction) {
-  
+export default function (mapStateFunction) {
+
 }

@@ -46,6 +46,6 @@ export default function (source) {
 
   return {
     mapStateToProps: getFunctionByDeclaration(connectArguments[0], source),
-    mapDispatchToProps: getFunctionByDeclaration(connectArguments[1], source),
+    mapDispatchToProps: getFunctionByDeclaration(connectArguments[1], source)
   };
 }

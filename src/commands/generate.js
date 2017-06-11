@@ -18,7 +18,7 @@ export default function (files = []) {
   const opts = {
     width: 20,
     total: files.length,
-    clear: true,
+    clear: true
   };
   const progressBar = new ProgressBar('generating [:bar] :percent :etas', opts);
 

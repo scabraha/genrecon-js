@@ -19,21 +19,21 @@ describe('Mapping Function Extractors', () => {
 
     expect(extractMappingFunctions([{
       type: DECLARATION_TYPES.DEFAULT_EXPORT,
-      declaration: {},
+      declaration: {}
     }])).toEqual({});
 
     expect(extractMappingFunctions([{
       type: DECLARATION_TYPES.DEFAULT_EXPORT,
       declaration: {
-        callee: {},
-      },
+        callee: {}
+      }
     }])).toEqual({});
   });
 
   it('returns an empty object when no argument type is found for mapStateToProps', () => {
     expect(extractMappingFunctions([{
       type: DECLARATION_TYPES.DEFAULT_EXPORT,
-      declaration: { callee: { arguments: [{ name: 'expectedFunction' }] } },
+      declaration: { callee: { arguments: [{ name: 'expectedFunction' }] } }
     }])).toEqual({});
   });
 
@@ -42,9 +42,9 @@ describe('Mapping Function Extractors', () => {
       type: DECLARATION_TYPES.DEFAULT_EXPORT,
       declaration: {
         callee: {
-          arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }],
-        },
-      },
+          arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }]
+        }
+      }
     }])).toEqual({});
 
     expect(extractMappingFunctions([
@@ -52,13 +52,13 @@ describe('Mapping Function Extractors', () => {
         type: DECLARATION_TYPES.DEFAULT_EXPORT,
         declaration: {
           callee: {
-            arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }],
-          },
-        },
+            arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }]
+          }
+        }
       },
       {
-        type: DECLARATION_TYPES.VAR_DECLARATION,
-      },
+        type: DECLARATION_TYPES.VAR_DECLARATION
+      }
     ])).toEqual({});
 
     expect(extractMappingFunctions([
@@ -66,14 +66,14 @@ describe('Mapping Function Extractors', () => {
         type: DECLARATION_TYPES.DEFAULT_EXPORT,
         declaration: {
           callee: {
-            arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }],
-          },
-        },
+            arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }]
+          }
+        }
       },
       {
         type: DECLARATION_TYPES.VAR_DECLARATION,
-        declarations: [{}],
-      },
+        declarations: [{}]
+      }
     ])).toEqual({});
 
     expect(extractMappingFunctions([
@@ -81,21 +81,21 @@ describe('Mapping Function Extractors', () => {
         type: DECLARATION_TYPES.DEFAULT_EXPORT,
         declaration: {
           callee: {
-            arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }],
-          },
-        },
+            arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }]
+          }
+        }
       },
       {
         type: DECLARATION_TYPES.VAR_DECLARATION,
-        declarations: [{ id: 'INVALID' }],
-      },
+        declarations: [{ id: 'INVALID' }]
+      }
     ])).toEqual({});
   });
 
   it('returns the mapStateToProps declaration when its defined', () => {
     const expected = {
       type: DECLARATION_TYPES.VAR_DECLARATION,
-      declarations: [{ id: { name: 'expectedFunction' } }],
+      declarations: [{ id: { name: 'expectedFunction' } }]
     };
 
     expect(extractMappingFunctions([
@@ -103,18 +103,18 @@ describe('Mapping Function Extractors', () => {
         type: DECLARATION_TYPES.DEFAULT_EXPORT,
         declaration: {
           callee: {
-            arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }],
-          },
-        },
+            arguments: [{ type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }]
+          }
+        }
       },
-      expected,
+      expected
     ])).toEqual({ mapStateToProps: expected });
   });
 
   it('returns the function declarations when mapDispatchToProps is defined', () => {
     const expected = {
       type: DECLARATION_TYPES.VAR_DECLARATION,
-      declarations: [{ id: { name: 'expectedFunction' } }],
+      declarations: [{ id: { name: 'expectedFunction' } }]
     };
 
     expect(extractMappingFunctions([
@@ -124,24 +124,24 @@ describe('Mapping Function Extractors', () => {
           callee: {
             arguments: [
               { type: 'INVALID' },
-              { type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' },
-            ],
-          },
-        },
+              { type: ARG_TYPES.IDENTIFIER, name: 'expectedFunction' }
+            ]
+          }
+        }
       },
-      expected,
+      expected
     ])).toEqual({ mapDispatchToProps: expected });
   });
 
   it('returns the function declarations when both are defined', () => {
     const expectedMapState = {
       type: DECLARATION_TYPES.VAR_DECLARATION,
-      declarations: [{ id: { name: 'expectedStateFunction' } }],
+      declarations: [{ id: { name: 'expectedStateFunction' } }]
     };
 
     const expectedMapDispatch = {
       type: DECLARATION_TYPES.VAR_DECLARATION,
-      declarations: [{ id: { name: 'expectedDispatchFunction' } }],
+      declarations: [{ id: { name: 'expectedDispatchFunction' } }]
     };
 
     expect(extractMappingFunctions([
@@ -151,13 +151,13 @@ describe('Mapping Function Extractors', () => {
           callee: {
             arguments: [
               { type: ARG_TYPES.IDENTIFIER, name: 'expectedStateFunction' },
-              { type: ARG_TYPES.IDENTIFIER, name: 'expectedDispatchFunction' },
-            ],
-          },
-        },
+              { type: ARG_TYPES.IDENTIFIER, name: 'expectedDispatchFunction' }
+            ]
+          }
+        }
       },
       expectedMapState,
-      expectedMapDispatch,
+      expectedMapDispatch
     ])).toEqual({ mapStateToProps: expectedMapState, mapDispatchToProps: expectedMapDispatch });
   });
 });

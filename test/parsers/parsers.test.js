@@ -16,7 +16,7 @@ describe('Parser Tests', () => {
     const parsedFiles = parse(fileNames);
     expect(parsedFiles).toEqual([{
       filePath: 'script.js',
-      parsedFile: 'parsed data',
+      parsedFile: 'parsed data'
     }]);
     expect(fs.readFileSync).not.toHaveBeenCalledWith('example.txt', 'utf8');
     expect(fs.readFileSync).not.toHaveBeenCalledWith('readme.md', 'utf8');
@@ -37,7 +37,7 @@ describe('Parser Tests', () => {
     const parsedFiles = parse(fileNames);
     expect(parsedFiles).toEqual([{
       filePath: 'script.js',
-      parsedFile: 'parsed data',
+      parsedFile: 'parsed data'
     }]);
     expect(fs.readFileSync).not.toHaveBeenCalledWith('example.txt', 'utf8');
     expect(fs.readFileSync).not.toHaveBeenCalledWith('readme.md', 'utf8');
@@ -54,7 +54,7 @@ describe('Parser Tests', () => {
     const parsedFiles = parse(fileNames);
     expect(parsedFiles).toEqual([{
       filePath: 'script.js',
-      parsedFile: 'parsed data',
+      parsedFile: 'parsed data'
     }]);
     expect(fs.readFileSync).not.toHaveBeenCalledWith('example.txt', 'utf8');
     expect(fs.readFileSync).not.toHaveBeenCalledWith('readme.md', 'utf8');
