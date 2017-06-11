@@ -2,6 +2,7 @@ const esprima = require('esprima');
 const fs = require('fs');
 
 const FILE_NAME_REGEX = /(?:\.([^.]+))?$/;
+const SHEBANG_REGEX = /^#!(.*\n)/;
 
 export default function (filePaths = []) {
   return filePaths.reduce((parsedFiles, filePath) => {
@@ -9,7 +10,9 @@ export default function (filePaths = []) {
     if (fileType !== 'js') {
       return parsedFiles;
     }
-    const file = fs.readFileSync(filePath, 'utf8');
+
+    // Read the file and remove the shebang (#!) if present
+    const file = fs.readFileSync(filePath, 'utf8').replace(SHEBANG_REGEX, '');
     let parsedFile;
     try {
       parsedFile = esprima.parse(file, { sourceType: 'script' });
